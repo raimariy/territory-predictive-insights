@@ -153,7 +153,6 @@ public class SistemaMonitoramento {
             return;
         }
 
-        //System.out.println("*********************************************");
         System.out.println("[" + nivel + "] Risco de alagamento em " + dados.getNomeRegiao());
         System.out.println("Sensor: " + sensor);
         System.out.println("Estratégia: " + estrategia);
@@ -161,7 +160,6 @@ public class SistemaMonitoramento {
         System.out.println("Limite estourado: " + limite + " mm/h (nível " + nivel + ")");
         System.out.println("População na região: " + dados.getPopulacao() + " pessoas");
         System.out.println("Este alerta apoia a decisão da equipe responsável; não decide por ela.");
-        //System.out.println("*********************************************");
     }
 
     //dados do território
@@ -193,6 +191,10 @@ public class SistemaMonitoramento {
                 case 4:
                     System.out.println("Código de acesso:");
                     String codigo = entrada.nextLine();
+                    if (!dados.codigoCorreto(codigo)) {
+                        System.out.println("Alteração rejeitada: código de acesso incorreto.");
+                        break; //sai do switch sem pedir os limiares
+                    }
                     System.out.println("Novo limiar de ATENÇÃO (mm/h, número inteiro):");
                     int atencao = entrada.nextInt();
                     System.out.println("Novo limiar de ALERTA (mm/h, número inteiro):");
