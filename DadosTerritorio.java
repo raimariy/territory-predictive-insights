@@ -72,8 +72,7 @@ public class DadosTerritorio {
         return true;
     }
 
-    //metodo privado: só a própria classe compara o código
-    private boolean codigoCorreto(String codigo) {
+    public boolean codigoCorreto(String codigo) {
         return codigoAcesso.equals(codigo);
     }
 }
